@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Slackr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- You can add your styles and scripts here -->
+  <link rel="stylesheet" type="text/css" media="screen" href="styles/provided.css" />
+  <script type="module" src="src/helpers.js"></script>
+  <!-- Bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+  
+  
+  <!-- This is an example app structure, you can modify this as much as you choose -->
+  <header class="banner">
+    <h1>Slackr</h1>
+  </header>
+  <main role="main">
+    <!-- app goes here -->
+
+  <div id ="first-page"> 
+    <div>
+      <span id="login-link" class="lol"> Login</span> |
+      <span id= "register-link"> Register</span>
+    </div>
+
+    <div id="login">
+      <div class="container">
+        <!-- Test purpose removed  <form> -->
+       
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+          </div>
+          <button type="submit" class="btn btn-primary" id="login-submit">Login</button>
+       <!-- </form>--> 
+      </div>
+    </div>
+
+    <div id="register">
+      <div class="container">
+      <!-- Test purpose removed  <form> -->
+        <div class="form-group">
+          <label for="email-register">Email:</label>
+          <input type="text" class="form-control" id="email-register" placeholder="Enter email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+        </div>
+        <div class="form-group">
+          <label for="pwd-register">Password:</label>
+          <input type="password" class="form-control" id="pwd-register" placeholder="Enter password" name="pswd">
+        </div>
+        <div class="form-group">
+          <label for="pwd-register-confrim">Confirm Password:</label>
+          <input type="password" class="form-control" id="pwd-register-confrim" placeholder="Comfirm password" name="pswd-r">
+        </div>
+       
+        <button type="submit" class="btn btn-primary" id="register-submit">Register</button>
+       <!-- </form>--> 
+      </div>
+    </div>
+  </div>
+    
+   
+  <div id = "Channels_first">
+  
+       <div id="Channel_lists">
+        <p> Public Channels: </p>
+        <ul style="list-style-type:none" id="Public_List"> 
+        </ul>
+        <p> Private Channels: </p>
+        <ul style="list-style-type:none" id="Private_List"> 
+        </ul>
+       </div>
+      
+       <div id = "Welcome_Page">
+          <div id = "Welcome_mess" > HELLO WELCOM TO SLACKER, COMP6080 </div>
+          <div id = "Description"> 
+            Description of channel: 
+            <span id = "DName"> L</span>
+          </div>
+          <div id = "Not_member">
+          </div>
+          <div id="Messhere">
+              Please select channel to view messages and description
+          </div>
+       </div>
+     
+  </div>
+  
+
+  <div id="create_channel">
+    <div class="container">
+      <!-- Test purpose removed  <form> -->
+     
+        <div class="form-group">
+          <label for="channel_name">Channel Name:</label>
+          <input type="text" class="form-control" id="channel_name" placeholder="Enter Channel Name" name="chalName"required="true"  >
+        </div>
+        <hr>
+        <div class="form-group">
+          <label for="channel_type">Channel Type:</label>
+          <input type="text" class="form-control" id="channel_type" placeholder="Private/Public" name="chalType"required="true"  >
+        </div>
+       
+        <hr/>
+        <div class="form-group">
+          <label for="channel_description">Channel Description:</label>
+          <input type="text" class="form-control" id="channel_description" placeholder="Enter Channel Description" name="chalDec" required="false" >
+        </div>
+
+        <button type="submit" class="btn btn-success" id="push_Channel">Submit</button>
+        <button class="btn btn-danger" id="no_Channel">Cancel</button>
+
+     <!-- </form>--> 
+    </div>
+  </div>
+
+  <div id ="edit_channel">
+    <div class="container">
+      <div class="form-group">
+        <label for="channel_edit_ID">Channel ID:</label>
+        <input type="text" class="form-control" id="channel_edit_ID" placeholder="Enter Channel ID" name="channel_edit_ID" >
+      </div>
+
+      <div class="form-group">
+        <label for="channel_edit_name">Channel New Name:</label>
+        <input type="text" class="form-control" id="channel_edit_name" placeholder="Enter Channel new Name" name="channel_edit_name" >
+      </div>
+
+      <div class="form-group">
+        <label for="channel_edit_descr">Channel New Description:</label>
+        <input type="text" class="form-control" id="channel_edit_descr" placeholder="Enter Channel New Description" name="channel_edit_descr" >
+      </div>
+
+      <button type="submit" class="btn btn-success" id="push_ch_edit">Submit</button>
+      <button class="btn btn-danger" id="cancel_Edit">Cancel</button>
+    </div>
+  </div>
+
+  <div id="checkPiined">
+    Pinned Messages
+  </div>
+
+  <div id = "edit_message">
+    <div class="container">
+
+      <div class="form-group">
+        <label for="message_edit">Edit Message:</label>
+        <input type="text" class="form-control" id="message_edit" placeholder="Enter New Message" name="message_edit" >
+      </div>
+
+      <button type="submit" class="btn btn-success" id="push_edit_message">Submit</button>
+      <button class="btn btn-danger" id="cancel_Edit_message">Cancel</button>
+    </div>
+  </div>
+
+
+  <div id="Send_message">
+    
+      <div class="container">
+        <div class="form-group">
+          <label for="message_to_send">Enter Message:</label>
+          <input type="text" class="form-control" id="message_to_send" placeholder="Please enter your Message" name="message_to_send" >
+        </div>
+      
+        <button type="submit" class="btn btn-success" id="push_new_message">Submit</button>
+        <button class="btn btn-danger" id="cancel_new_message">Cancel</button>
+      </div>
+  
+  </div>
+
+  <div id="Send_Image">
+    <div>
+      <p> Upload picture to send</p>
+      <input type="file" id="upload_new_img" name="filename"> 
+    </div>
+    <button class="btn btn-success" id="send_new_pic" type="file">Send message</button>
+    
+    <button class="btn btn-danger" id="close_send_image">Back</button>
+  </div>
+
+
+  <div id="React">
+    <!-- Eye hearts-->
+    <button id="Emoji_1"> &#128525;</button>
+    <!-- Laughing tears -->
+    <button id = "Emoji_2"> &#128514;</button>
+    <!-- Heart -->
+    <button id = "Emoji_3"> &#128151;</button>
+  </div>
+  
+  </main>
+  <div id="bottom">
+    <p id ="bottom-name">&copy; Slackr</p>
+    <button id = "New_Channel"> Create a New Channel </button>
+    <button id = "Edit_Channel_btn"> Edit an Existing Channel </button>
+    <div>
+      For user info:
+      <button id= "userName"> JLASD</button>
+    </div>
+  </div>
+
+  </div>
+  <div id="message_display">
+  </div>
+
+  <div id = "UserProfile">
+    <div class="container">
+      <div>
+        Welcome to <span id="nameProfile">sdf </span> Profile
+      </div>
+      <div>
+        Bio: <span id="bioProfile"> sdf </span> 
+      </div>
+      <div>
+        Email: <span id="emailProfile">fds </span>
+      </div>
+      <img id="picProfile" src="default.png"> 
+      
+      <div id=" Update">
+
+        <div class="form-group">
+          <label for="update_name">Update name:</label>
+          <input type="text" class="form-control" id="update_name" placeholder="Please enter your new name" name="update_name" >
+        </div>
+
+        <div class="form-group">
+          <label for="update_bio">Update bio:</label>
+          <input type="text" class="form-control" id="update_bio" placeholder="Please update your bio" name="update_bio" >
+        </div>
+
+        <div class="form-group">
+          <label for="update_email">Update email:</label>
+          <input type="text" class="form-control" id="update_email" placeholder="Please enter your new email" name="update_email" >
+        </div>
+
+      </div>
+
+      Update Password:
+      <input type="password" id="passProfile"><br>
+      <input type="checkbox" id="show"> Show Password
+      </div>
+      
+      <div>
+        <p> Upload new profile picture</p>
+        <input type="file" id="myFile" name="filename"> 
+      </div>
+      <button class="btn btn-success" id="update_prof" type="file">Update Profile</button>
+      
+      <button class="btn btn-danger" id="close_profile">Back</button>
+    </div>
+    
+   
+  </div>
+
+  <div id = "OtherUserProfile">
+    <div class="container">
+      <div>
+        Welcome to <span id="nameProfileOther">sdf </span> Profile
+      </div>
+      <div>
+        Bio: <span id="bioProfileOther"> sdf </span> 
+      </div>
+      <div>
+        Email: <span id="emailProfileOther">fds </span>
+      </div>
+      <img id="otherUserPic" src="default.png"> 
+    </div>
+    <button class="btn btn-danger" id="close_profile_other">Back</button>
+  </div>
+ 
+  <!-- Code has been taken from: https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-modals.php-->
+  <div class="m-4">
+    <div id="myModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Alert</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p id = "Display_error">Do you want to save changes to this document before closing?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  <!-- MODAL for channel images -->
+  <div class="m-4">
+    <div id="channelModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Images in Channel</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modal_display">
+                </div>
+                <div id="arrows">
+                  <div id="prevImage"> &#8592; Previous Image</div>
+                  <div id="nextImage"> Next Image &rarr; </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+
+  <!-- MODAL for channel invite -->
+  <div class="m-4">
+    <div id="user_Invite" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Channel Invite </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Select user you want to Invite:
+                    <div id="user_options"> 
+                    </div>
+                </div>
+                <div id="arrows">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="list_invite">Invite Selected</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+<!-- <input type="file" id="myFile" name="filename"> -->
+  <script type="module" src="src/main.js"></script>
+  <!-- Bootstrap Script-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
